@@ -45,4 +45,8 @@ public class ProductEntity {
 	public void setProductData(String productData) {
 		this.productData = productData;
 	}
+	public Long getProdId() {
+		// TODO Auto-generated method stub
+		return prodId;
+	}
 }

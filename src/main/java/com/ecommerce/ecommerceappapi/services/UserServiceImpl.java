@@ -1,9 +1,14 @@
 package com.ecommerce.ecommerceappapi.services;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import com.ecommerce.ecommerceappapi.entity.ProductEntity;
 import com.ecommerce.ecommerceappapi.entity.UserEntity;
+import com.ecommerce.ecommerceappapi.model.Product;
 import com.ecommerce.ecommerceappapi.model.User;
 import com.ecommerce.ecommerceappapi.repository.UserRepository;
 
@@ -25,5 +30,18 @@ public class UserServiceImpl implements UserService {
 		BeanUtils.copyProperties(user, userEntity);
 		userRepository.save(userEntity);
 		return user;
+	}
+	
+	public List<User> getAllUsers() {
+List<UserEntity> userEntities =  userRepository.findAll();
+		
+		List<User> users= userEntities.stream().map(user -> new User(
+				user.getEmailId(),
+				user.getType(),
+				user.getPassword()))
+				.collect(Collectors.toList());
+		
+		return users;
+	
 	}
 }

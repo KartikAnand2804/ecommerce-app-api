@@ -1,8 +1,15 @@
 package com.ecommerce.ecommerceappapi.model;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+//import java.util.List;
 import lombok.Data;
 
+
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
 	private long prodId;
 	private String productName;
@@ -10,6 +17,12 @@ public class Product {
 	private String productDesc;
 	private String productData;
 	
+
+	
+	public Product(Long prodId2, String productName2, int productPrice2, String productDesc2) {
+		// TODO Auto-generated constructor stub;
+		return; 
+	}
 	public long getProdId() {
 		return prodId;
 	}

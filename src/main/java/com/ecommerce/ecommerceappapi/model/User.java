@@ -15,6 +15,9 @@ public class User {
 	private String password;
 	
 	
+	public User(String emailId2, String password2, String string) {
+		// TODO Auto-generated constructor stub
+	}
 	public String getUserName() {
 		return userName;
 	}
